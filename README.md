@@ -62,7 +62,7 @@ docker run -p localport:globalport yourname/buildname
 ## /
 The root endpoint, returns info about the API, no API key required.
 
-#### GET
+### GET
 This returns a JSON string with API information
 ```json
 {
@@ -76,7 +76,7 @@ This returns a JSON string with API information
 ## /items
 This is an endpoint for all the items in the MySQL DB, an API key is required, this can be acquired in the index.js file.
 
-#### GET
+### GET
 
 Headers: 
 - x-api-key: Your API key
@@ -101,7 +101,7 @@ Returns:
 }
 ```
 
-#### POST
+### POST
 
 Headers:
 - x-api-key: Your API key
@@ -126,7 +126,7 @@ Returns:
 }
 ```
 
-#### DELETE
+### DELETE
 
 Headers: 
 - x-api-key: Your API key
