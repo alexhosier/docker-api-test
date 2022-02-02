@@ -108,18 +108,19 @@ app.route('/items')
         // Query the DB
         connection.query('INSERT INTO items (item_name, item_quantity, item_price, item_uniqueid) VALUES ("' + name + '", "' + quantity + '", "' + price + '", "' + uniqueid + '")', (error, results, fields) => {
             if (error) throw error
-
-            // Send the user the objects
-            console.log(`A \u001b[32mPOST \u001b[0mrequest was performed on /items with ${apikey}`)
-            res.status(200)
-            res.json(req.body)
         })
+
+        // Send the user the objects
+        console.log(`A \u001b[32mPOST \u001b[0mrequest was performed on /items with ${apikey}`)
+        res.status(200)
+        res.json(req.body)
         
     })
     .delete((req, res) => {
 
         // Send the user the objects
         console.log(`A \u001b[31mDELETE \u001b[0mrequest was performed on /items with ${apikey}`)
+        res.send("WHAT ARE YO DOING")
         
     })
 
