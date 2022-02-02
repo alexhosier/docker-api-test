@@ -56,7 +56,7 @@ docker run -p localport:globalport yourname/buildname
 The root endpoint, returns info about the API, no API key required.
 
 #### GET
-This returns a JSON string
+This returns a JSON string with API information
 ```json
 {
   "api_name": "Game API",
