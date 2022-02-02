@@ -122,3 +122,25 @@ Returns:
   "item_uniqueid": "item_pear"
 }
 ```
+
+#### DELETE
+
+Headers: 
+- x-api-key: Your API key
+
+Body:
+```json
+{
+  "item_name": "Pear"
+}
+```
+
+Returns:
+```json
+{
+  "item_name": "Pear",
+  "item_quantity": 53,
+  "item_price": 13,
+  "item_uniqueid": "item_pear"
+}
+```
