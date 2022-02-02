@@ -71,7 +71,7 @@ This returns a JSON string with API information
 ---
 
 ### /items
-This is an endpoint for all the items in the MySQL DB, an API key is required, this can be accuired in the index.js file.
+This is an endpoint for all the items in the MySQL DB, an API key is required, this can be acquired in the index.js file.
 
 #### GET
 
