@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
     res.json({ api_name: "Game API", api_version: "1.0.0" })
 })
 
+// A route for the items endpoint
 app.route('/items')
     .get((req, res) => {
         // Get the API key in the headers
