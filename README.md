@@ -106,3 +106,13 @@ Body:
   "item_uniqueid": "item_pear"
 }
 ```
+
+Returns:
+```json
+{
+  "item_name": "Pear",
+  "item_quantity": 53,
+  "item_price": 13,
+  "item_uniqueid": "item_pear"
+}
+```
