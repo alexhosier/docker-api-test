@@ -26,3 +26,14 @@ EXPOSE 8080
 
 CMD ["npm", "start"]
 ```
+
+For the API to work it uses a MySQL database, down below is the SQL query required to generate all of the fields used by this API.
+```sql
+CREATE TABLE IF NOT EXISTS `items` (
+  `item_name` varchar(50) DEFAULT NULL,
+  `item_quantity` int(11) DEFAULT NULL,
+  `item_price` int(11) DEFAULT NULL,
+  `item_uniqueid` varchar(50) DEFAULT NULL,
+  UNIQUE KEY `item_uniqueid` (`item_uniqueid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+```
