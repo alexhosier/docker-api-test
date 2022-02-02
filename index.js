@@ -2,7 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mysql = require('mysql')
-require('dotenv').config()
+// require('dotenv').config() // DEV PURPOSE
 const app = express()
 
 // Create the connection
