@@ -58,7 +58,15 @@ The root endpoint, returns info about the API, no API key required.
 Implemented endpoints
 - GET
 
-'/items'
+### /items
+This is an endpoint for all the items in the MySQL DB, an API key is required, this can be accuired in the index.js file.
+
+Implemented endpoints
 - GET
 - POST
 - DELETE
+
+#### GET
+
+Headers: 
+- x-api-key: You api key
