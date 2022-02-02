@@ -55,16 +55,17 @@ docker run -p localport:globalport yourname/buildname
 ### /
 The root endpoint, returns info about the API, no API key required.
 
-Implemented endpoints
-- GET
+#### GET
+This returns a JSON string
+```json
+{
+  "api_name": "Game API",
+  "api_version": "1.0.0"
+}
+```
 
 ### /items
 This is an endpoint for all the items in the MySQL DB, an API key is required, this can be accuired in the index.js file.
-
-Implemented endpoints
-- GET
-- POST
-- DELETE
 
 #### GET
 
