@@ -6,9 +6,10 @@ require('dotenv').config()
 const app = express()
 
 // Create the connection
-const connection = mysql.createConnection({
-    host     : process.env.HOST,
-    user     : process.env.USER,
+var connection = mysql.createPool({
+    connectionLimit : 10,
+    host : process.env.HOST,
+    user : process.env.USER,
     password : process.env.PASS,
     database : process.env.DB
 })
