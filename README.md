@@ -70,7 +70,7 @@ This is an endpoint for all the items in the MySQL DB, an API key is required, t
 #### GET
 
 Headers: 
-- x-api-key: You api key
+- x-api-key: Your API key
 
 Returns:
 ```json
@@ -90,3 +90,19 @@ Returns:
     }
   ]
 }
+```
+
+#### POST
+
+Headers:
+- x-api-key: Your API key
+
+Body:
+```json
+{
+  "item_name": "Pear",
+  "item_quantity": 53,
+  "item_price": 13,
+  "item_uniqueid": "item_pear"
+}
+```
