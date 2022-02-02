@@ -71,3 +71,22 @@ This is an endpoint for all the items in the MySQL DB, an API key is required, t
 
 Headers: 
 - x-api-key: You api key
+
+Returns:
+```json
+{
+  "items": [
+    {
+      "item_name": "Apple",
+      "item_quantity": 13,
+      "item_price": 5,
+      "item_uniqueid": "item_apple"
+    },
+    {
+      "item_name": "Orange",
+      "item_quantity": 32,
+      "item_price": 10,
+      "item_uniqueid": "item_orange"
+    }
+  ]
+}
