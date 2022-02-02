@@ -51,6 +51,14 @@ docker run -p localport:globalport yourname/buildname
 ```
 
 ## Endpoints
-'/' - The root endpoint, returns info about the API, no API key required
+
+### /
+The root endpoint, returns info about the API, no API key required.
+
+Implemented endpoints
+- GET
 
 '/items'
+- GET
+- POST
+- DELETE
