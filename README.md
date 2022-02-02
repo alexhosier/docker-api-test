@@ -3,6 +3,9 @@
 ## About this project
 This project was designed to be a test seeing how possible it would be to run a small REST API from docker containers that will be used in Unity for items and their metadata.
 
+There are several improvements that could be made in order to make this scale better and for a better use experience, as such:
+- A database for API keys with descriptions as to what they link to (to prevent you from having to rebuild the docker image to add another API key)
+
 ---
 
 ## How to build
