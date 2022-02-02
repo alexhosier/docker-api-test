@@ -49,3 +49,8 @@ And to run the docker image you can execute
 ```
 docker run -p localport:globalport yourname/buildname
 ```
+
+## Endpoints
+'/' - The root endpoint, returns info about the API, no API key required
+
+'/items'
