@@ -3,6 +3,8 @@
 ## About this project
 This project was designed to be a test seeing how possible it would be to run a small REST API from docker containers that will be used in Unity for items and their metadata.
 
+---
+
 ## How to build
 A dockerfile needs to be created in order to build this project, below is the template you can follow to create one with the right environment variables to run this code.
 ```dockerfile
@@ -48,4 +50,97 @@ And to run the docker image you can execute
 
 ```
 docker run -p localport:globalport yourname/buildname
+```
+
+---
+
+## Endpoints
+
+### /
+The root endpoint, returns info about the API, no API key required.
+
+#### GET
+This returns a JSON string with API information
+```json
+{
+  "api_name": "Game API",
+  "api_version": "1.0.0"
+}
+```
+
+---
+
+### /items
+This is an endpoint for all the items in the MySQL DB, an API key is required, this can be acquired in the index.js file.
+
+#### GET
+
+Headers: 
+- x-api-key: Your API key
+
+Returns:
+```json
+{
+  "items": [
+    {
+      "item_name": "Apple",
+      "item_quantity": 13,
+      "item_price": 5,
+      "item_uniqueid": "item_apple"
+    },
+    {
+      "item_name": "Orange",
+      "item_quantity": 32,
+      "item_price": 10,
+      "item_uniqueid": "item_orange"
+    }
+  ]
+}
+```
+
+#### POST
+
+Headers:
+- x-api-key: Your API key
+
+Body:
+```json
+{
+  "item_name": "Pear",
+  "item_quantity": 53,
+  "item_price": 13,
+  "item_uniqueid": "item_pear"
+}
+```
+
+Returns:
+```json
+{
+  "item_name": "Pear",
+  "item_quantity": 53,
+  "item_price": 13,
+  "item_uniqueid": "item_pear"
+}
+```
+
+#### DELETE
+
+Headers: 
+- x-api-key: Your API key
+
+Body:
+```json
+{
+  "item_name": "Pear"
+}
+```
+
+Returns:
+```json
+{
+  "item_name": "Pear",
+  "item_quantity": 53,
+  "item_price": 13,
+  "item_uniqueid": "item_pear"
+}
 ```
