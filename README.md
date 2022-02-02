@@ -43,13 +43,13 @@ CREATE TABLE IF NOT EXISTS `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-To build run this command
+To build the docker image, run this command
 
 ```
 docker build -t yourname/buildname .
 ```
 
-And to run the docker image you can execute
+To run the docker image you can execute
 
 ```
 docker run -p localport:globalport yourname/buildname
