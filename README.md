@@ -3,6 +3,9 @@
 ## About this project
 This project was designed to be a test seeing how possible it would be to run a small REST API from docker containers that will be used in Unity for items and their metadata.
 
+There are several improvements that could be made in order to make this scale better and for a better use experience, as such:
+- A database for API keys with descriptions as to what they link to (to prevent you from having to rebuild the docker image to add another API key)
+
 ---
 
 ## How to build
@@ -24,7 +27,7 @@ ENV PASS=MYSQL_PASS
 ENV DB=MYSQL_DATABASE
 ENV PORT=PORTTORUNON
 
-EXPOSE 8080
+EXPOSE PORTTORUNON
 
 CMD ["npm", "start"]
 ```
@@ -40,13 +43,13 @@ CREATE TABLE IF NOT EXISTS `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
-To build run this command
+To build the docker image, run this command
 
 ```
 docker build -t yourname/buildname .
 ```
 
-And to run the docker image you can execute
+To run the docker image you can execute
 
 ```
 docker run -p localport:globalport yourname/buildname
@@ -56,10 +59,10 @@ docker run -p localport:globalport yourname/buildname
 
 ## Endpoints
 
-### /
+## /
 The root endpoint, returns info about the API, no API key required.
 
-#### GET
+### GET
 This returns a JSON string with API information
 ```json
 {
@@ -70,10 +73,10 @@ This returns a JSON string with API information
 
 ---
 
-### /items
+## /items
 This is an endpoint for all the items in the MySQL DB, an API key is required, this can be acquired in the index.js file.
 
-#### GET
+### GET
 
 Headers: 
 - x-api-key: Your API key
@@ -98,7 +101,7 @@ Returns:
 }
 ```
 
-#### POST
+### POST
 
 Headers:
 - x-api-key: Your API key
@@ -123,7 +126,7 @@ Returns:
 }
 ```
 
-#### DELETE
+### DELETE
 
 Headers: 
 - x-api-key: Your API key
