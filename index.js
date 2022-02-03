@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 // A route for the items endpoint
 app.route('/items')
     .get((req, res) => {
+
         // Get the API key in the headers
         var apikey = req.get('x-api-key')
 
@@ -80,6 +81,7 @@ app.route('/items')
         
     })
     .post((req, res) => {
+
         // Get the API key in the headers
         var apikey = req.get('x-api-key')
 
@@ -120,9 +122,37 @@ app.route('/items')
     })
     .delete((req, res) => {
 
+        // Get the API key in the headers
+        var apikey = req.get('x-api-key')
+
+        // Check if there is an API key sent
+        if (apikey == null) {
+            res.status(400)
+            return res.json({ "error_code": 400, "error_message": "No API key was provided!" })
+        }
+
+        // Check if the API key is valid
+        if (!apiKeys.includes(apikey)) {
+            res.status(401)
+            return res.json({ "error_code": 401, "error_message": "Invalid API key!" })
+        }
+
+        // Fetch the body
+        var uniqueid = req.body['item_uniqueid']
+
+        // Check if the required info is present
+        if (uniqueid == null) {
+            res.status(400)
+            return res.json({ "error_code": 400, "error_message": "There is an error with the info you provided!" })
+        }
+
+        connection.query('DELETE FROM items WHERE item_uniqueid="' + uniqueid + '"', (error, results, fields) => {
+            if (error) throw error
+        })
+
         // Send the user the objects
         console.log(`A \u001b[31mDELETE \u001b[0mrequest was performed on /items with ${apikey}`)
-        res.send("WHAT ARE YO DOING")
+        res.json(req.body)
         
     })
 
