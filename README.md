@@ -134,7 +134,7 @@ Headers:
 Body:
 ```json
 {
-  "item_name": "Pear"
+  "item_uniqueid": "item_pear"
 }
 ```
 
